@@ -77,6 +77,21 @@
         display: flex;
         margin: 1vh 0vw;
     }
+    /* Add this to your CSS file or within a <style> tag in home.html */
+.navbar {
+    position: fixed; /* Makes the navbar stick to the top */
+    top: 0;          /* Positions it at the top of the page */
+    left: 0;         /* Aligns it to the left */
+    width: 100%;     /* Makes it span the full width of the page */
+    z-index: 1000;   /* Ensures it stays on top of other content */
+    background-color: #ffffff; /* Set your desired background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for better visibility */
+}
+
+/* Optional: Add padding to the body to prevent content from being hidden behind the navbar */
+body {
+    padding-top: 60px; /* Adjust this value based on the height of your navbar */
+}
 
     .navbar ul li {
         list-style: none;
@@ -244,20 +259,47 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
     <title>Face Recognition Based Attendance System</title>
 </head>
 
 <body>
     <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="../static/css/logo.png" alt="Company Logo">
+        <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 w-[98%] max-w-7xl mx-auto bg-blue-600 backdrop-blur-lg rounded-2xl shadow-lg z-50 transition-all duration-300">
+            <div class="relative px-4 py-3">
+                <div class="flex items-center justify-between">
+                    <!-- Logo with animation -->
+                    <a href="/" class="flex items-center gap-2 text-white hover:text-gray-200 transition-all duration-300 group">
+                        <img src="../static/css/logo.png" alt="CMR Logo" class="w-10 h-auto">
+                        <i class="fas fa-file-alt text-2xl group-hover:rotate-12 transition-transform duration-300"></i>
+                        <span class="font-semibold text-lg group-hover:translate-x-1 transition-transform duration-300">CMR ENGINEERING COLLEGE</span>
+                    </a>
+
+                    <!-- Desktop Navigation -->
+                    <div class="hidden lg:flex items-center gap-6">
+                        <div class="flex items-center space-x-1">
+                            <a href="#Home" class="nav-link text-white hover:text-gray-200 transition-colors">
+                                <i class="fas fa-home"></i>
+                                <span>Home</span>
+                            </a>
+                            <a href="#AboutUs" class="nav-link text-white hover:text-gray-200 transition-colors">
+                                <i class="fas fa-info-circle"></i>
+                                <span>About Us</span>
+                            </a>
+                        </div>
+                        <div class="h-6 w-px bg-gray-200"></div>
+                        <button id="theme-toggle" class="theme-toggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-button" class="lg:hidden mobile-menu-btn">
+                        <i class="fas fa-bars text-white"></i>
+                    </button>
+                </div>
             </div>
-            <h1 class="title">CMR ENGINEERING COLLEGE</h1>
-            <ul>
-                <li class="home-li"><a href="#Home" style="color:#dddddd">Home</a></li>
-                <li class="aboutus-li"><a href="#AboutUs"  style="color:#dddddd">About Us</a></li>
-            </ul>
         </nav>
     </header>
 
